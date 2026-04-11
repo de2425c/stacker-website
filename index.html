@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacker - Track Your Poker Sessions</title>
+    <meta name="description" content="Stacker is an iOS app for tracking your poker sessions, analyzing your performance, and improving your game.">
+    <link rel="canonical" href="https://stackpokertracker.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #333;
+            background-color: #fafafa;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        .description {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        .app-store-badge {
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        .app-store-badge img {
+            height: 54px;
+        }
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .links a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+            .links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">♠️</div>
+        <h1>Stacker</h1>
+        <p class="tagline">Track your poker sessions</p>
+        <p class="description">
+            Log your buy-ins, cash-outs, and notes. Analyze your performance across stakes and locations. Improve your game with insights powered by data.
+        </p>
+        <a class="app-store-badge" href="https://apps.apple.com/app/stacker" target="_blank" rel="noopener">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <nav class="links">
+            <a href="/support">Support</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+        </nav>
+    </div>
+</body>
+</html>
