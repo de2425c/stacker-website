@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -11,9 +12,14 @@ export default function SupportPage() {
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col">
       <div className="flex-1 max-w-md mx-auto px-6 py-16 text-center">
-        <div className="w-18 h-18 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white font-bold text-3xl mx-auto mb-6">
-          S
-        </div>
+        <Image
+          src="/app-icon.png"
+          alt="Stacker"
+          width={72}
+          height={72}
+          className="mx-auto mb-6 rounded-2xl"
+          priority
+        />
         <h1 className="text-2xl font-bold text-slate-900 tracking-tight mb-3">
           Stacker Support
         </h1>
