@@ -18,7 +18,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#0f172a",
+  themeColor: "#0F1114",
 };
 
 export const metadata: Metadata = {
@@ -55,7 +55,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
   other: {
-    "apple-itunes-app": "app-id=6745683972",
+    "apple-itunes-app": "app-id=com.stackerpokertracker.stacker",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
   },
 };
 
@@ -68,7 +70,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${inter.className} ${inter.variable} antialiased`}
+        className={`${inter.className} ${inter.variable} bg-[#0F1114] antialiased`}
         suppressHydrationWarning
       >
         {children}

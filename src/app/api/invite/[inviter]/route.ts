@@ -8,10 +8,7 @@ import { buildInvitePage, buildNotFoundPage } from "@/lib/invite/template";
 import { isValidUsername } from "@/lib/invite/validation";
 import type { InviteClaim } from "@/lib/invite/types";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ inviter: string }> },
-): Promise<NextResponse> {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ inviter: string }> }): Promise<NextResponse> {
   const { inviter: inviterUsername } = await params;
 
   if (!inviterUsername || !inviterUsername.trim()) {
@@ -34,11 +31,7 @@ export async function GET(
     const db = getAdminDb();
     const token = randomUUID();
 
-    const usersSnapshot = await db
-      .collection("users")
-      .where("username", "==", trimmedUsername)
-      .limit(1)
-      .get();
+    const usersSnapshot = await db.collection("users").where("username", "==", trimmedUsername).limit(1).get();
 
     if (usersSnapshot.empty) {
       return new NextResponse(buildNotFoundPage(), {
