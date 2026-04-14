@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Join Stacker",
@@ -17,80 +18,90 @@ export const metadata: Metadata = {
   },
 };
 
+const APP_STORE_URL = "https://apps.apple.com/us/app/stacker-poker-tracker/id6745683972";
+const APP_STORE_BADGE_URL =
+  "https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg";
+
 export default function InvitePage() {
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center p-6"
-      style={{ background: "linear-gradient(180deg, #1e293b 0%, #0f172a 100%)" }}
-    >
-      <div className="max-w-sm w-full text-center text-white">
-        <div className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center shadow-lg shadow-black/30 overflow-hidden bg-gradient-to-br from-emerald-500 to-emerald-600 text-4xl font-bold">
-          S
-        </div>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#fafafa] px-6 py-8">
+      <div className="max-w-[600px] text-center">
+        <p className="mb-4 text-5xl" aria-hidden>
+          ♠️
+        </p>
 
-        <h1 className="text-3xl font-bold leading-tight tracking-tight mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <h1 className="mb-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-[2.5rem]">
           You&apos;re Invited to Stacker
         </h1>
-        <p className="text-base text-white/75 mb-8 leading-relaxed">Join the best poker session tracking app</p>
 
-        <div className="flex flex-col gap-3 mb-8 text-left">
-          <div className="flex items-center gap-3 text-sm text-white/85">
-            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-              <svg className="w-4.5 h-4.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-            </div>
-            <span>Track every session with detailed stats</span>
+        <p className="mb-8 text-xl text-slate-500">
+          Join the best poker session tracking app
+        </p>
+
+        <div className="mb-10 flex flex-col gap-4 text-left">
+          <div className="flex items-center gap-4 text-slate-600">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-lg">
+              📊
+            </span>
+            <span className="leading-relaxed">Track every session with detailed stats</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-white/85">
-            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-              <svg className="w-4.5 h-4.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            <span>Analyze your performance over time</span>
+          <div className="flex items-center gap-4 text-slate-600">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-lg">
+              📈
+            </span>
+            <span className="leading-relaxed">Analyze your performance over time</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-white/85">
-            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
-              <svg className="w-4.5 h-4.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </div>
-            <span>Compare results with friends</span>
+          <div className="flex items-center gap-4 text-slate-600">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-lg">
+              👥
+            </span>
+            <span className="leading-relaxed">Compare results with friends</span>
           </div>
         </div>
 
         <a
-          href="https://apps.apple.com/us/app/stacker-poker-tracker/id6745683972"
-          className="inline-block transition-transform active:scale-95"
+          href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Download on the App Store"
+          className="mb-12 inline-block"
+          aria-label="Download Stacker on the App Store"
           tabIndex={0}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us"
+            src={APP_STORE_BADGE_URL}
             alt="Download on the App Store"
-            className="h-16 w-auto"
+            className="h-[54px]"
           />
         </a>
 
-        <div className="mt-6 text-xs text-white/40">
-          <a href="https://stackpokertracker.com" className="text-white/60 no-underline">
-            stackpokertracker.com
-          </a>
-        </div>
+        <nav
+          className="flex flex-wrap items-center justify-center gap-6"
+          aria-label="Footer navigation"
+        >
+          <Link
+            href="/support"
+            className="text-sm font-medium text-emerald-500 hover:underline"
+            tabIndex={0}
+          >
+            Support
+          </Link>
+          <Link
+            href="/privacy"
+            className="text-sm font-medium text-emerald-500 hover:underline"
+            tabIndex={0}
+          >
+            Privacy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-sm font-medium text-emerald-500 hover:underline"
+            tabIndex={0}
+          >
+            Terms
+          </Link>
+        </nav>
       </div>
-    </div>
+    </main>
   );
 }

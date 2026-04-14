@@ -37,19 +37,18 @@ export const buildInvitePage = ({ inviterUsername, token, title, description, og
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeDesc}">
   <meta name="twitter:image" content="${ogImageUrl}">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#fafafa">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { height: 100%; background-color: #0f172a; }
+    html { height: 100%; background-color: #fafafa; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-      background-attachment: fixed;
+      background-color: #fafafa;
       min-height: 100vh; min-height: 100dvh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 24px;
@@ -57,30 +56,33 @@ export const buildInvitePage = ({ inviterUsername, token, title, description, og
       padding-bottom: max(24px, env(safe-area-inset-bottom));
       padding-left: max(24px, env(safe-area-inset-left));
       padding-right: max(24px, env(safe-area-inset-right));
-      color: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      color: #334155; -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
-    .container { max-width: 400px; width: 100%; text-align: center; }
-    .logo { width: 80px; height: 80px; margin: 0 auto 24px; border-radius: 20px; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 32px rgba(0,0,0,0.3); font-size: 36px; font-weight: 700; color: #fff; }
-    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.5px; }
-    .subtitle { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 32px; line-height: 1.5; }
-    .invite-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 24px; margin-bottom: 24px; }
-    .invite-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
-    .inviter-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 600; }
-    .features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; text-align: left; }
-    .feature { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.85); }
-    .feature-icon { width: 32px; height: 32px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .feature-icon svg { width: 18px; height: 18px; color: #10b981; }
-    .download-btn { display: inline-block; cursor: pointer; text-decoration: none; transition: transform 0.15s ease; }
-    .download-btn:active { transform: scale(0.95); }
-    .download-btn img { height: 64px; width: auto; }
-    .footer { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.4); }
-    .footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .container { max-width: 600px; width: 100%; text-align: center; }
+    .logo { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.5px; }
+    .subtitle { font-size: 20px; color: #64748b; margin-bottom: 32px; line-height: 1.5; }
+    .invite-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+    .invite-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; }
+    .inviter-name { font-size: 20px; font-weight: 600; color: #0f172a; }
+    .features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; text-align: left; }
+    .feature { display: flex; align-items: center; gap: 16px; font-size: 15px; color: #475569; line-height: 1.5; }
+    .feature-icon { width: 40px; height: 40px; background: #ecfdf5; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+    .download-btn { display: inline-block; cursor: pointer; text-decoration: none; margin-bottom: 48px; }
+    .download-btn img { height: 54px; width: auto; }
+    .footer { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer a { color: #10b981; text-decoration: none; font-size: 14px; font-weight: 500; }
+    .footer a:hover { text-decoration: underline; }
     .hidden-token { display: none; }
+    @media (max-width: 640px) {
+      h1 { font-size: 28px; }
+      .subtitle { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo">S</div>
+    <div class="logo">♠️</div>
     <h1>You're Invited to Stacker</h1>
     <p class="subtitle">Your friend wants you to join the best poker session tracker</p>
     <div class="invite-card">
@@ -89,22 +91,26 @@ export const buildInvitePage = ({ inviterUsername, token, title, description, og
     </div>
     <div class="features">
       <div class="feature">
-        <div class="feature-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <div class="feature-icon">📊</div>
         <span>Track every session with detailed stats</span>
       </div>
       <div class="feature">
-        <div class="feature-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+        <div class="feature-icon">📈</div>
         <span>Analyze your performance over time</span>
       </div>
       <div class="feature">
-        <div class="feature-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+        <div class="feature-icon">👥</div>
         <span>Compare results with friends</span>
       </div>
     </div>
-    <a href="https://apps.apple.com/us/app/stack-poker-learn-train/id6745683972" class="download-btn" target="_blank" aria-label="Download on the App Store">
-      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us" alt="Download on the App Store" />
+    <a href="https://apps.apple.com/us/app/stacker-poker-tracker/id6745683972" class="download-btn" target="_blank" aria-label="Download on the App Store">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
     </a>
-    <div class="footer"><a href="https://stackpokertracker.com">stackpokertracker.com</a></div>
+    <nav class="footer">
+      <a href="https://stackpokertracker.com/support">Support</a>
+      <a href="https://stackpokertracker.com/privacy">Privacy</a>
+      <a href="https://stackpokertracker.com/terms">Terms</a>
+    </nav>
   </div>
   <div class="hidden-token" data-token="${token}" data-inviter="${safeUsername}"></div>
 </body>
@@ -118,41 +124,38 @@ export const buildNotFoundPage = (): string => {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Invite Not Found - Stacker</title>
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#fafafa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { height: 100%; background-color: #0f172a; }
+    html { height: 100%; background-color: #fafafa; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-      background-attachment: fixed;
+      background-color: #fafafa;
       min-height: 100vh; min-height: 100dvh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 24px;
       padding-top: max(24px, env(safe-area-inset-top));
       padding-bottom: max(24px, env(safe-area-inset-bottom));
-      color: #fff; -webkit-font-smoothing: antialiased; text-align: center;
+      color: #334155; -webkit-font-smoothing: antialiased; text-align: center;
     }
-    .container { max-width: 400px; width: 100%; }
-    .error-icon { width: 80px; height: 80px; margin: 0 auto 24px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .error-icon svg { width: 40px; height: 40px; color: rgba(255,255,255,0.6); }
-    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.5px; }
-    .subtitle { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 32px; line-height: 1.5; }
-    .home-link { display: inline-block; padding: 14px 32px; background: rgba(255,255,255,0.1); color: #fff; font-size: 16px; font-weight: 600; border-radius: 12px; text-decoration: none; transition: background 0.15s ease; }
-    .home-link:active { background: rgba(255,255,255,0.16); }
+    .container { max-width: 600px; width: 100%; }
+    .logo { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .subtitle { font-size: 16px; color: #64748b; margin-bottom: 32px; line-height: 1.6; }
+    .home-link { display: inline-block; padding: 14px 32px; background: #10b981; color: #fff; font-size: 16px; font-weight: 600; border-radius: 12px; text-decoration: none; transition: background 0.15s ease; }
+    .home-link:hover { background: #059669; }
+    @media (max-width: 640px) { h1 { font-size: 24px; } }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="error-icon">
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    </div>
+    <div class="logo">♠️</div>
     <h1>Invite Not Found</h1>
     <p class="subtitle">This invite link is invalid or the user doesn't exist. Ask your friend for a new link.</p>
-    <a href="https://stackpokertracker.com" class="home-link">Go Back</a>
+    <a href="https://stackpokertracker.com" class="home-link">Go to Stacker</a>
   </div>
 </body>
 </html>`;
