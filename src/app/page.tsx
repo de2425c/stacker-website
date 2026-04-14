@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { StackerLogo } from "@/components/stacker-logo";
-import { Footer } from "@/components/footer";
 
 const APP_STORE_URL = "#";
 const APP_STORE_BADGE_URL = "https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg";
@@ -74,9 +73,33 @@ const STATS = [
   { label: "Currencies", value: "Multi" },
 ] as const;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: "Stacker",
+  operatingSystem: "iOS",
+  applicationCategory: "UtilitiesApplication",
+  description:
+    "Track poker sessions, analyze 17+ performance metrics, manage your bankroll, and compete with friends.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  creator: {
+    "@type": "Organization",
+    name: "Stackflow Inc.",
+    url: "https://stackpokertracker.com",
+  },
+};
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0F1114]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section
         className="relative overflow-hidden"
