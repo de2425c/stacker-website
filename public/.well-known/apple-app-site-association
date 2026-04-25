@@ -3,10 +3,10 @@
     "apps": [],
     "details": [
       {
-        "appID": "com.stackerpokertracker.stacker",
+        "appID": "RQVKDAF979.com.stackerpokertracker.stacker",
         "paths": [
-          "/invite",
-          "/invite/*"
+          "/invite/*",
+          "/activity/*"
         ]
       }
     ]
